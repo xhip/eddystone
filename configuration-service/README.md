@@ -1,7 +1,5 @@
 # Eddystone Configuration GATT Service
 
-**Note: https://github.com/google/eddystone/issues/132 needs resolution before this specification can be considered final.**
-
 This document defines the specification for the Eddystone Configuration Service and offers some implementation guidance.
 
 The Eddystone Configuration Service runs as a GATT service on the beacon while it is connectable and allows configuration of the advertised data, the broadcast power levels, and the advertising intervals. It also forms part of the definition of how Eddystone-EID beacons are configured and registered with a trusted resolver.
@@ -377,8 +375,8 @@ Writeable only in locked state.</td>
 <tr>
 <td>Return Codes</td>
 <td>
-Read Not Permitted: for any attempt to read or write while the beacon is locked.<br>
-Write Not Permitted: for any attempt to write while the beacon is locked.
+Read Not Permitted: for any attempt to read while the beacon is unlocked.<br>
+Write Not Permitted: for any attempt to write while the beacon is unlocked.
 </td>
 </tr>
 </table>
@@ -486,6 +484,8 @@ Write length: 17 bytes (UID), 19 bytes (URL), 1 byte (TLM), 34 or 18 bytes (EID)
 <td>Description</td>
 <td>
 Reads the data set in the active slot, and sets the data/parameters to be broadcast. The interpretation of the read and written data is characterised by the frame_type byte, which maps to the Eddystone frame type bytes of <code>0x00</code> (UID), <code>0x10</code> (URL), <code>0x20</code> (TLM), <code>0x30</code> (EID).
+<br><br>
+Note that the format of read and written data differ slightly, as detailed below. The read data is just the broadcast data for that slot, and may include the Tx power; the written data is just the frame type and any ID-related information, and doesn't include the Tx power since that is controlled by characteristics 4 (Radio Tx Power) and 5 (Advertised Tx Power).
 <br><br>
 Note: All arrays of bytes used in these parameters are in big-endian order.
 <br><br>
