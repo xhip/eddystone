@@ -10,8 +10,10 @@ write you own Eddystone-URL beacon code. We encourage you to add additional exam
 To date, in this directory you will find the following implementations:
 
 * [Arduino (BLEPeripheral)](https://github.com/sandeepmistry/arduino-BLEPeripheral/blob/master/examples/Eddystone/EddystoneURL/EddystoneURL.ino), a list of compatible hardware can be found [here](https://github.com/sandeepmistry/arduino-BLEPeripheral#compatible-hardware).
+* [BBC micro:bit](https://github.com/showio/microbit-physicalweb)
 * [BlueGiga BLED112](BlueGiga-BLED112)
 * [Cambridge Silicon Radio CSR1010 (Beacon Development Board)](CSR-1010)
+* [PyBeacon (Python Package)](PyBeacon), for latest builds, check [Nirmanakarta/PyBeacon](https://github.com/nirmankarta/PyBeacon)
 * [Linux (bluez)](linux)
 * [ARM mbed (Nordic nRF51-dongle, nRF51-DK))](mbed_EddystoneURL_Beacon)
 * [Node.js (node-eddystone-beacon)](https://github.com/don/node-eddystone-beacon)
